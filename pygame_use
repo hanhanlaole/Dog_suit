@@ -1,0 +1,48 @@
+import pygame,time
+back="C:\\mxcmaterials\\hk-bg-613fae2e-c826-4efc-94c2-bc59792a5c3b.png"
+hat="C:\\mxcmaterials\\hk-hat-abae0467-1f35-4939-9427-3cb242d02fc3.png"
+glasses="C:\\mxcmaterials\\hk-gla-d4e80e45-dcaa-4515-ab9e-f3ee6f2ef8b1.png"
+scarf="C:\\mxcmaterials\\hk-scarf-d87a25d8-b101-4cae-a1ea-e5807940584e.png"
+tie="C:\\mxcmaterials\\hk-tie-a448aa8a-43e1-4bc4-8b82-da631a299116.png"
+h="C:\\mxcmaterials\\hat_btn-dbf38251-ee8c-4c84-bbe6-460c16959640.png"
+g="C:\\mxcmaterials\\gla_btn-82676a6d-0517-4ebb-97f6-a17691d786ec.png"
+s="C:\\mxcmaterials\\scarf_btn-7f3e7067-5d99-4853-bc48-24553f39bce8.png"
+t="C:\\mxcmaterials\\tie_btn-3233041e-deb7-4905-ac39-3664a509cecc.png"
+
+pygame.init()
+sc=pygame.display.set_mode((400,400))
+def background():
+    pygame.display.update()
+    up=pygame.image.load(back)
+    sc.blit(up,(0,0))
+    pygame.display.update()
+    A=[h,g,s,t]
+    B=20
+    for a in A:
+        up=pygame.image.load(a)
+        sc.blit(up,(B,40))
+        pygame.display.update()
+        B+=80
+background()
+
+
+while True:
+    pygame.display.update()
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            pygame.display.quit()
+            exit()
+        x,y=pygame.mouse.get_pos()
+        if event.type==pygame.MOUSEBUTTONDOWN:
+            if 20<x<80 and 40<y<60:
+                sc.blit(pygame.image.load(hat),(150,170))
+                print("hat")
+            if 100<x<160 and 40<y<60:
+                sc.blit(pygame.image.load(glasses),(130,220))
+                print("glasses")
+            if 180<x<240 and 40<y<60:
+                sc.blit(pygame.image.load(scarf),(110,320))
+                print("scarf")
+            if 260<x<320 and 40<y<60:
+                sc.blit(pygame.image.load(tie),(140,350))
+                print("tie")
